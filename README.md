@@ -86,6 +86,54 @@ Ensure your `.env.local` is configured with the correct `MODEL_PATH` and `MAX_TO
 ```
 python -m server.server
 ```
+## 🚀 Usage
+
+Once the server is running, you can interact with it using a gRPC client. Below is a simple implementation of a Python client to test the OCR extraction.
+
+### Basic Python Client (`test_client.py`)
+
+```python
+import grpc
+import os
+from generated import model_pb2, model_pb2_grpc
+
+class ModelClient:
+    def __init__(self, host="localhost", port=50051):
+        # Create a communication channel to the server
+        self.channel = grpc.insecure_channel(f"{host}:{port}")
+        # Bind the client to the service definition
+        self.stub = model_pb2_grpc.ModelServiceStub(self.channel)
+
+    def extract_ocr(self, image_path, prompt):
+        # Read the image as binary bytes
+        with open(image_path, "rb") as f:
+            image_bytes = f.read()
+
+        # Build the gRPC request
+        request = model_pb2.UserRequest(
+            image=image_bytes,
+            prompt=prompt
+        )
+
+        # Call the server and return the response
+        response = self.stub.ExtractOCR(request)
+        return response.output
+
+if __name__ == "__main__":
+    client = ModelClient()
+    
+    # Path to your sample document
+    IMAGE_PATH = "invoice_sample.jpg" 
+    PROMPT = "Extract all fields into a structured JSON."
+
+    if os.path.exists(IMAGE_PATH):
+        print(f"📡 Sending request...")
+        result = client.extract_ocr(IMAGE_PATH, PROMPT)
+        print("\n✅ Extracted Data:")
+        print(result)
+    else:
+        print(f"❌ Error: {IMAGE_PATH} not found.")
+```
 ### ⚠️ Troubleshooting : 
 | Issue | Cause | Solution |
 | :--- | :--- | :--- |
@@ -95,15 +143,15 @@ python -m server.server
 
 ## 🔗 References & Documentation
 
-This service is a core component of a larger ecosystem. For further details on the implementation and the underlying model, refer to the links below:
+This microservice is a core component of a larger ecosystem. For further details on the implementation and the underlying model, refer to the links below:
 
-| Project | Description | Link |
-| :--- | :--- | :--- |
-| **Invoice OCR Integration** | The main GitHub project that utilizes this gRPC service for automated ERP workflows. | [View Project](https://github.com/ae-saouiqui/Invoice-OCR-Server) |
-| **InternVL Official** | The official repository for the InternVL family of models used for vision-language understanding. | [Open-MMLab/InternVL](https://github.com/OpenGVLab/InternVL) |
+| Project | Logo | Description | Link |
+| :--- | :---: | :--- | :--- |
+| **Invoice OCR Integration** | <img src="" width="100" height="100"> | The main project utilizing this service for automated ERP workflows. | [View Project]([https://github.com/ae-saouiqui/Invoice-OCR-Server](https://github.com/Amal-dadda/Ocr-odoo.git)) |
+| **InternVL Official** | <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/586ce225-9929-4641-9302-253744c42ffd" />| The official repository for the InternVL family of models. | [Open-MMLab/InternVL](https://github.com/OpenGVLab/InternVL) |
 
 ---
 
 ### 📖 Further Reading
 * **gRPC Documentation:** Learn more about the [gRPC Python implementation](https://grpc.io/docs/languages/python/).
-* **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL2-1B) and model cards.
+* **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL2-1B).
