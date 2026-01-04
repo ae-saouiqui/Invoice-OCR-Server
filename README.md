@@ -177,11 +177,6 @@ This microservice is a core component of a larger ecosystem. For further details
 
 ---
 
-## ✉️ Contact & Support
-
-If you have any questions, run into issues, or want to collaborate on this OCR project, feel free to reach out!
-
----
 
 ## ✉️ Contact & Support
 
