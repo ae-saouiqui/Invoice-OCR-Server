@@ -181,11 +181,19 @@ This microservice is a core component of a larger ecosystem. For further details
 
 If you have any questions, run into issues, or want to collaborate on this OCR project, feel free to reach out!
 
-* **📧 Email:** [amineessaouiqui2@gmail.com](mailto:amineessaouiqui2@gmail.com)
-* **🔗 LinkedIn:** [Amine Es-saouiqui](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/amine-es-saouiqui))
-* **💻 GitHub:** [ae-saouiqui](https://github.com/ae-saouiqui)
+---
+
+## ✉️ Contact & Support
+
+If you have any questions, run into issues, or want to collaborate on this OCR project, feel free to reach out!
+
+* **📧 Email:**  [amineessaouiqui2@gmail.com](mailto:amineessaouiqui2@gmail.com)
+* **[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amine-es-saouiqui)**  [Amine Es-saouiqui](https://www.linkedin.com/in/amine-es-saouiqui)
+* **[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/ae-saouiqui)**   [ae-saouiqui](https://github.com/ae-saouiqui)
 
 ---
+
+
 
 ## ❤️ Final Word
 > #  "Innovation is the result of curiosity and collaboration. Thank you for exploring this project and contributing to the future of automated document processing!"
