@@ -182,7 +182,7 @@ This microservice is a core component of a larger ecosystem. For further details
 If you have any questions, run into issues, or want to collaborate on this OCR project, feel free to reach out!
 
 * **📧 Email:** [amineessaouiqui2@gmail.com](mailto:amineessaouiqui2@gmail.com)
-* **🔗 LinkedIn:** [Amine Es-saouiqui](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/amine-es-saouiqui-1155b5330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
+* **🔗 LinkedIn:** [Amine Es-saouiqui](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/amine-es-saouiqui))
 * **💻 GitHub:** [ae-saouiqui](https://github.com/ae-saouiqui)
 
 ---
