@@ -11,6 +11,8 @@ load_dotenv()
 
 MODEL_PATH = os.getenv("MODEL_PATH")
 MAX_TOKENS = int(os.getenv("MAX_TOKENS"))
+PORT = int(os.getenv('GRPC_PORT'))
+HOST = os.getenv('GRPC_HOST')
 
 class ModelServer(model_pb2_grpc.ModelServiceServicer):
     """
@@ -60,8 +62,8 @@ def serve():
     """
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
     model_pb2_grpc.add_ModelServiceServicer_to_server(ModelServer(), server)
-    server.add_insecure_port('[::]:50051')
-    print("gRPC server running on port 50051...")
+    server.add_insecure_port(f"{HOST}:{PORT}")
+    print(f"gRPC server running on port {PORT} ...")
     server.start()
     server.wait_for_termination()
 
