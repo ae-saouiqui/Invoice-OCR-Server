@@ -81,11 +81,29 @@ Compile the `.proto` definitions into the `generated/` folder so the Python serv
 ```shell
 python -m grpc_tools.protoc -I./protos --python_out=./generated --grpc_python_out=./generated ./protos/model.proto
 ```
+#### 5. ⚙️ Environment Configuration (`.env`) : 
+
+To generalize the server connection and model behavior, the following environment variables are used. The server is configured to use safe defaults if these are not explicitly provided.
+
+| Variable | Default Value | Description |
+| :--- | :--- | :--- |
+| **`GRPC_HOST`** | `[::]` | The network interface the server binds to. `[::]` allows universal access (IPv4/IPv6). |
+| **`GRPC_PORT`** | `50051` | The port used for gRPC communication. |
+| **`MODEL_PATH`** | *Required* | The absolute local path to your `InternVL3-1B-hf` folder. |
+| **`MAX_TOKENS`** | `default : 1024` | The maximum number of tokens the VLM can generate in its JSON response. |
+
 #### 5. Run the Server : 
 Ensure your `.env.local` is configured with the correct `MODEL_PATH` and `MAX_TOKENS`, then start the service:
 ```
 python -m server.server
 ```
+If the server initializes and receives a request correctly, your terminal will look like this:
+```
+gRPC server running on port 50051 ...
+An Image Received
+```
+> __Note:__ The `"An Image Received"` message appears every time a client _(like Odoo or your test script)_ successfully sends a document for processing.
+> 
 ## 🚀 Usage
 
 Once the server is running, you can interact with it using a gRPC client. Below is a simple implementation of a Python client to test the OCR extraction.
@@ -155,3 +173,24 @@ This microservice is a core component of a larger ecosystem. For further details
 ### 📖 Further Reading
 * **gRPC Documentation:** Learn more about the [gRPC Python implementation](https://grpc.io/docs/languages/python/).
 * **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL2-1B).
+
+
+---
+
+## ✉️ Contact & Support
+
+If you have any questions, run into issues, or want to collaborate on this OCR project, feel free to reach out!
+
+* **📧 Email:** [amineessaouiqui2@gmail.com](mailto:amineessaouiqui2@gmail.com)
+* **🔗 LinkedIn:** [Amine Es-saouiqui](https://linkedin.com/in/your-profile](https://www.linkedin.com/in/amine-es-saouiqui-1155b5330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
+* **💻 GitHub:** [ae-saouiqui](https://github.com/ae-saouiqui)
+
+---
+
+### ❤️ Final Word
+
+> "Innovation is the result of curiosity and collaboration. Thank you for exploring this project and contributing to the future of automated document processing!"
+
+**Happy Coding! 🚀**
+
+---
