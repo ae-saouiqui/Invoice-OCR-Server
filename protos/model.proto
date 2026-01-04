@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package model;
+
+
+service ModelService {
+    rpc ExtractOCR(UserRequest) returns (ModelResponse);
+}
+
+
+message UserRequest {
+    bytes image = 1;
+    string prompt = 2;
+}
+
+
+message ModelResponse {
+    string output = 1;
+}
