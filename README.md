@@ -32,7 +32,78 @@ OCR_model/
 | **`protos/`** | API Definition | The `model.proto` file defining the `ModelService` and message structures. |
 | **`server/`** | Service Layer | Server-side implementation of the `ExtractOCR` RPC method. |
 | **`.env.local`** | Configuration | Local environment variables for VLM paths and the maximum generated tokens. |
-## 🛠️ Quick Start
-1. **Clone:** `git clone --recursive [YOUR_REPO_URL]`
-2. **Setup:** Create a `.env` with `MODEL_PATH=./InternVL3-1B-hf`
-3. **Run:** `python server/server.py`.
+
+
+### 📜 Proto File Definition
+
+The `.proto` file acts as a **contract** between the client and the server. It defines the communication rules and ensures that data sent by the client is perfectly understood by the AI server. It uses a binary format that is much faster and more efficient than standard HTTP/JSON.
+
+
+
+#### 📊 Message & Service Summary
+
+| Component | Type | Description |
+| :--- | :--- | :--- |
+| **`ModelService`** | Service | The main interface that handles OCR and extraction requests. |
+| **`ExtractOCR`** | Method | The specific function (RPC) called to trigger the VLM inference. |
+| **`image`** | `bytes` | The raw binary data of the document (JPG, PNG, or PDF scan). |
+| **`prompt`** | `string` | Natural language instructions (e.g., "Extract total and date"). |
+| **`output`** | `string` | The VLM's response, typically formatted as a structured JSON string. |
+---
+### 🛠️ Quick Start 
+Follow these steps to set up the microservice on your local machine.
+#### 1. Clone the Project
+You must clone recursively to download the **InternVL** model weights along with the source code:
+```
+git clone --recursive https://github.com/ae-saouiqui/Invoice-OCR-Server.git
+cd Invoice-OCR-Server
+```
+#### 2. Create the environment
+```shell
+python -m venv vlm-env
+```
+#### 3. Activate it 
+> For linux/Max :
+```
+./vlm-env/bin/activate
+```
+> For Windows :
+```
+.\vlm-env\Scripts\activate
+```
+#### 3. Install Dependencies :
+Install the required AI frameworks and gRPC tools:
+```
+pip install -r requirements.txt
+```
+#### 4. Generate gRPC Stubs:
+Compile the `.proto` definitions into the `generated/` folder so the Python server can use them:
+```shell
+python -m grpc_tools.protoc -I./protos --python_out=./generated --grpc_python_out=./generated ./protos/model.proto
+```
+#### 5. Run the Server : 
+Ensure your `.env.local` is configured with the correct `MODEL_PATH` and `MAX_TOKENS`, then start the service:
+```
+python -m server.server
+```
+### ⚠️ Troubleshooting : 
+| Issue | Cause | Solution |
+| :--- | :--- | :--- |
+| **`OutOfMemoryError` (CUDA)** | GPU VRAM is insufficient for the 1B model. | Quantize the model before running inference. |
+| **Empty `InternVL` folder** | Cloned without the `--recursive` flag. | Run `git submodule update --init --recursive` in the root folder. |
+| **`ModuleNotFoundError`** | gRPC stubs were not generated in `generated/`. | Ensure you ran the `protoc` command in [Step 4](#4-generate-grpc-stubs) of the Quick Start. |
+
+## 🔗 References & Documentation
+
+This service is a core component of a larger ecosystem. For further details on the implementation and the underlying model, refer to the links below:
+
+| Project | Description | Link |
+| :--- | :--- | :--- |
+| **Invoice OCR Integration** | The main GitHub project that utilizes this gRPC service for automated ERP workflows. | [View Project](https://github.com/ae-saouiqui/Invoice-OCR-Server) |
+| **InternVL Official** | The official repository for the InternVL family of models used for vision-language understanding. | [Open-MMLab/InternVL](https://github.com/OpenGVLab/InternVL) |
+
+---
+
+### 📖 Further Reading
+* **gRPC Documentation:** Learn more about the [gRPC Python implementation](https://grpc.io/docs/languages/python/).
+* **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL2-1B) and model cards.
