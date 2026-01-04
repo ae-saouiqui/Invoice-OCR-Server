@@ -172,7 +172,7 @@ This microservice is a core component of a larger ecosystem. For further details
 
 ### 📖 Further Reading
 * **gRPC Documentation:** Learn more about the [gRPC Python implementation](https://grpc.io/docs/languages/python/).
-* **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL2-1B).
+* **HuggingFace InternVL:** Access the [1B model weights](https://huggingface.co/OpenGVLab/InternVL3-1B).
 
 
 ---
