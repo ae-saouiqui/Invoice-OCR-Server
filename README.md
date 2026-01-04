@@ -165,7 +165,7 @@ This microservice is a core component of a larger ecosystem. For further details
 
 | Project | Logo | Description | Link |
 | :--- | :---: | :--- | :--- |
-| **Invoice OCR Integration** | <img src="" width="100" height="100"> | The main project utilizing this service for automated ERP workflows. | [View Project]([https://github.com/ae-saouiqui/Invoice-OCR-Server](https://github.com/Amal-dadda/Ocr-odoo.git)) |
+| **Invoice OCR Integration** | <img src="https://github.com/Amal-dadda/Ocr-odoo/blob/main/static/description/icon.png" width="100" height="100"> | The main project utilizing this service for automated ERP workflows. | [View Project]([https://github.com/ae-saouiqui/Invoice-OCR-Server](https://github.com/Amal-dadda/Ocr-odoo.git)) |
 | **InternVL Official** | <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/586ce225-9929-4641-9302-253744c42ffd" />| The official repository for the InternVL family of models. | [Open-MMLab/InternVL](https://github.com/OpenGVLab/InternVL) |
 
 ---
@@ -189,8 +189,9 @@ If you have any questions, run into issues, or want to collaborate on this OCR p
 
 ## ❤️ Final Word
 > #  "Innovation is the result of curiosity and collaboration. Thank you for exploring this project and contributing to the future of automated document processing!"
+---
+
 
 
 # <div align="center">**Happy Coding! 🚀**</div>
 
----
