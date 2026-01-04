@@ -50,7 +50,7 @@ The `.proto` file acts as a **contract** between the client and the server. It d
 | **`prompt`** | `string` | Natural language instructions (e.g., "Extract total and date"). |
 | **`output`** | `string` | The VLM's response, typically formatted as a structured JSON string. |
 ---
-### 🛠️ Quick Start 
+## 🛠️ Quick Start 
 Follow these steps to set up the microservice on your local machine.
 #### 1. Clone the Project
 You must clone recursively to download the **InternVL** model weights along with the source code:
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     else:
         print(f"❌ Error: {IMAGE_PATH} not found.")
 ```
-### ⚠️ Troubleshooting : 
+## ⚠️ Troubleshooting : 
 | Issue | Cause | Solution |
 | :--- | :--- | :--- |
 | **`OutOfMemoryError` (CUDA)** | GPU VRAM is insufficient for the 1B model. | Quantize the model before running inference. |
@@ -187,10 +187,10 @@ If you have any questions, run into issues, or want to collaborate on this OCR p
 
 ---
 
-### ❤️ Final Word
+## ❤️ Final Word
+> #  "Innovation is the result of curiosity and collaboration. Thank you for exploring this project and contributing to the future of automated document processing!"
 
-> "Innovation is the result of curiosity and collaboration. Thank you for exploring this project and contributing to the future of automated document processing!"
 
-**Happy Coding! 🚀**
+# <div align="center">**Happy Coding! 🚀**</div>
 
 ---
