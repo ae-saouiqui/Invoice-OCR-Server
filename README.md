@@ -98,9 +98,9 @@ Ensure your `.env.local` is configured with the correct `MODEL_PATH` and `MAX_TO
 python -m server.server
 ```
 If the server initializes and receives a request correctly, your terminal will look like this:
-```
-gRPC server running on port 50051 ...
-An Image Received
+```diff
++ gRPC server running on port 50051 ...
++ An Image Received
 ```
 > __Note:__ The `"An Image Received"` message appears every time a client _(like Odoo or your test script)_ successfully sends a document for processing.
 > 
