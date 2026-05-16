@@ -145,12 +145,12 @@ if __name__ == "__main__":
     PROMPT = "Extract all fields into a structured JSON."
 
     if os.path.exists(IMAGE_PATH):
-        print(f"📡 Sending request...")
+        print(f"Sending request ")
         result = client.extract_ocr(IMAGE_PATH, PROMPT)
-        print("\n✅ Extracted Data:")
+        print("\nExtracted Data:")
         print(result)
     else:
-        print(f"❌ Error: {IMAGE_PATH} not found.")
+        print(f"Error: {IMAGE_PATH} not found.")
 ```
 ## ⚠️ Troubleshooting : 
 | Issue | Cause | Solution |
